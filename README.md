@@ -1,21 +1,25 @@
-[![Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0][🖼️galtzo-i]][🖼️galtzo-discord] [![ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5][🖼️ruby-lang-i]][🖼️ruby-lang] [![each_in_batches Logo by Aboling0, CC BY-SA 4.0][🖼️each_in_batches-i]][🖼️each_in_batches]
+[![Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0][🖼️galtzo-i]][🖼️galtzo-discord] [![ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5][🖼️ruby-lang-i]][🖼️ruby-lang] [![late_template Logo by Aboling0, CC BY-SA 4.0][🖼️late_template-i]][🖼️late_template]
 
 [🖼️galtzo-i]: https://logos.galtzo.com/assets/images/galtzo-floss/avatar-192px.svg
 [🖼️galtzo-discord]: https://discord.gg/3qme4XHNKN
 [🖼️ruby-lang-i]: https://logos.galtzo.com/assets/images/ruby-lang/avatar-192px.svg
 [🖼️ruby-lang]: https://www.ruby-lang.org/
-[🖼️each_in_batches-i]: https://logos.galtzo.com/assets/images/galtzo-floss/each_in_batches/avatar-192px.svg
-[🖼️each_in_batches]: https://github.com/galtzo-floss/each_in_batches
+[🖼️late_template-i]: https://logos.galtzo.com/assets/images/galtzo-floss/late_template/avatar-192px.svg
+[🖼️late_template]: https://github.com/galtzo-floss/late_template
 
-# 🧺 EachInBatches
+# ⏰ LateTemplate
+
+[![Version][👽versioni]][👽version] [![License: MIT][📄license-img]][📄license-ref] [![Downloads Rank][👽dl-ranki]][👽dl-rank] [![Open Source Helpers][👽oss-helpi]][👽oss-help] [![Coveralls Test Coverage][🔑coveralls-img]][🔑coveralls] [![CodeCov Test Coverage][🔑codecovi♻️]][🔑codecov] [![QLTY Test Coverage][🔑qlty-covi]][🔑qlty-cov] [![QLTY Maintainability][🔑qlty-mnti]][🔑qlty-mnt] [![CI Heads][🚎3-hd-wfi]][🚎3-hd-wf] [![CI Current][🚎11-c-wfi]][🚎11-c-wf] [![CI Truffle Ruby][🚎9-t-wfi]][🚎9-t-wf] [![CI JRuby][🚎10-j-wfi]][🚎10-j-wf] [![Deps Locked][🚎13-🔒️-wfi]][🚎13-🔒️-wf] [![Deps Unlocked][🚎14-🔓️-wfi]][🚎14-🔓️-wf] [![CI Supported][🚎6-s-wfi]][🚎6-s-wf] [![CI Legacy][🚎4-lg-wfi]][🚎4-lg-wf] [![CI Unsupported][🚎7-us-wfi]][🚎7-us-wf] [![CI Ancient][🚎1-an-wfi]][🚎1-an-wf] [![CI Test Coverage][🚎2-cov-wfi]][🚎2-cov-wf] [![CI Style][🚎5-st-wfi]][🚎5-st-wf]
+
+---
 
 [![Liberapay Goal Progress][⛳liberapay-img]][⛳liberapay] [![Donate on PayPal][🖇paypal-img]][🖇paypal] [![Sponsor Me on Github][🖇sponsor-img]][🖇sponsor] [![Buy me a coffee][🖇buyme-small-img]][🖇buyme] [![Donate to my FLOSS or refugee efforts at ko-fi.com][🖇kofi-img]][🖇kofi] [&rarr; more funding options](#FLOSS-Funding)
-Better than Rails Batching.  Can you batch backwards for destructive tasks?  `each_in_batches` can.
 
-| 🚚 _Amazing_ test matrix was brought to you by | 🔎 appraisal2 🔎                                                                    |
 ## 🌻 Synopsis
 
-    $ bundle add each_in_batches
+Late Template is not your average Template. It will arrive late, and eat all your blueberries.
+
+| 🚚 _Amazing_ test matrix was brought to you by | 🔎 appraisal2 🔎                                                                    |
 |------------------------------------------------|-------------------------------------------------------------------------------------|
 | 👟 Check it out!                               | ✨ [github.com/appraisal-rb/appraisal2][💎appraisal2] ✨ |
 
@@ -25,19 +29,19 @@ Better than Rails Batching.  Can you batch backwards for destructive tasks?  `ea
 
 <details>
   <summary>Find this repo on other forges (Coming soon!)</summary>
-You only need to do that once.  Then proceed to install with:
+
 | Federated [DVCS][💎d-in-dvcs] Repository              | Status                                                            | Issues                    | PRs                      | Wiki                      | CI                       | Discussions                  |
 |-------------------------------------------------------|-------------------------------------------------------------------|---------------------------|--------------------------|---------------------------|--------------------------|------------------------------|
-| 🧪 [galtzo-floss/each_in_batches on GitLab][📜src-gl]   | The Truth                                                         | [💚][🤝gl-issues]         | [💚][🤝gl-pulls]         | [💚][📜wiki]              | 🏀 Tiny Matrix           | ➖                            |
-| 🧊 [galtzo-floss/each_in_batches on CodeBerg][📜src-cb] | An Ethical Mirror ([Donate][🤝cb-donate])                         | [💚][🤝cb-issues]         | [💚][🤝cb-pulls]         | ➖                         | ⭕️ No Matrix             | ➖                            |
-| 🐙 [galtzo-floss/each_in_batches on GitHub][📜src-gh]   | A Dirty Mirror                                                    | [💚][🤝gh-issues]         | [💚][🤝gh-pulls]         | ➖                         | 💯 Full Matrix           | [💚][gh-discussions]         |
+| 🧪 [galtzo-floss/late_template on GitLab][📜src-gl]   | The Truth                                                         | [💚][🤝gl-issues]         | [💚][🤝gl-pulls]         | [💚][📜wiki]              | 🏀 Tiny Matrix           | ➖                            |
+| 🧊 [galtzo-floss/late_template on CodeBerg][📜src-cb] | An Ethical Mirror ([Donate][🤝cb-donate])                         | [💚][🤝cb-issues]         | [💚][🤝cb-pulls]         | ➖                         | ⭕️ No Matrix             | ➖                            |
+| 🐙 [galtzo-floss/late_template on GitHub][📜src-gh]   | A Dirty Mirror                                                    | [💚][🤝gh-issues]         | [💚][🤝gh-pulls]         | ➖                         | 💯 Full Matrix           | [💚][gh-discussions]         |
 | 🎮️ [Discord Server][✉️discord-invite]                | [![Live Chat on Discord][✉️discord-invite-img]][✉️discord-invite] | [Let's][✉️discord-invite] | [talk][✉️discord-invite] | [about][✉️discord-invite] | [this][✉️discord-invite] | [library!][✉️discord-invite] |
 
 </details>
 
-[gh-discussions]: https://github.com/galtzo-floss/each_in_batches/discussions
+[gh-discussions]: https://github.com/galtzo-floss/late_template/discussions
 
-### Enterprise Support [![Tidelift](https://tidelift.com/badges/package/rubygems/each_in_batches)](https://tidelift.com/subscription/pkg/rubygems-each_in_batches?utm_source=rubygems-each_in_batches&utm_medium=referral&utm_campaign=readme)
+### Enterprise Support [![Tidelift](https://tidelift.com/badges/package/rubygems/late_template)](https://tidelift.com/subscription/pkg/rubygems-late_template?utm_source=rubygems-late_template&utm_medium=referral&utm_campaign=readme)
 
 <details>
   <summary>Need enterprise-level guarantees?</summary>
@@ -68,108 +72,112 @@ Alternatively:
 | Compliance              | [![License: MIT][📄license-img]][📄license-ref] [![📄ilo-declaration-img]][📄ilo-declaration] [![Security Policy][🔐security-img]][🔐security] [![Contributor Covenant 2.1][🪇conduct-img]][🪇conduct] [![SemVer 2.0.0][📌semver-img]][📌semver]                                                                                 |
 | Style                   | [![Enforced Code Style Linter][💎rlts-img]][💎rlts] [![Keep-A-Changelog 1.0.0][📗keep-changelog-img]][📗keep-changelog] [![Gitmoji Commits][📌gitmoji-img]][📌gitmoji] [![Compatibility appraised by: appraisal2][💎appraisal2-img]][💎appraisal2]                                                                               |
 | Support                 | [![Live Chat on Discord][✉️discord-invite-img]][✉️discord-invite] [![Get help from me on Upwork][👨🏼‍🏫expsup-upwork-img]][👨🏼‍🏫expsup-upwork] [![Get help from me on Codementor][👨🏼‍🏫expsup-codementor-img]][👨🏼‍🏫expsup-codementor]                                                                                    |
+| Maintainer 🎖️          | [![Follow Me on LinkedIn][💖🖇linkedin-img]][💖🖇linkedin] [![Follow Me on Ruby.Social][💖🐘ruby-mast-img]][💖🐘ruby-mast] [![Follow Me on Bluesky][💖🦋bluesky-img]][💖🦋bluesky] [![Contact Maintainer][🚂maint-contact-img]][🚂maint-contact] [![My technical writing][💖💁🏼‍♂️devto-img]][💖💁🏼‍♂️devto]                   |
+| `...` 💖                | [![Find Me on WellFound:][💖✌️wellfound-img]][💖✌️wellfound] [![Find Me on CrunchBase][💖💲crunchbase-img]][💖💲crunchbase] [![My LinkTree][💖🌳linktree-img]][💖🌳linktree] [![More About Me][💖💁🏼‍♂️aboutme-img]][💖💁🏼‍♂️aboutme] [🧊][💖🧊berg] [🐙][💖🐙hub]  [🛖][💖🛖hut] [🧪][💖🧪lab]                                |
+
+## ✨ Installation
+
 Install the gem and add to the application's Gemfile by executing:
-    $ bundle add each_in_batches
+
+    $ bundle add late_template
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install each_in_batches
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/late_template`. To experiment with that code, run `bin/console` for an interactive prompt.
+    $ gem install late_template
+
 ### 🔒 Secure Installation
-## Installation
+
 <details>
   <summary>For Medium or High Security Installations</summary>
 
 This gem is cryptographically signed, and has verifiable [SHA-256 and SHA-512][💎SHA_checksums] checksums by
-You only need to do that once.  Then proceed to install with:
+[stone_checksums][💎stone_checksums]. Be sure the gem you install hasn’t been tampered with
 by following the instructions below.
-```console
-gem install each_in_batches -P HighSecurity
+
+Add my public key (if you haven’t already, expires 2045-04-29) as a trusted certificate:
 
 ```console
+gem cert --add <(curl -Ls https://raw.github.com/galtzo-floss/certs/main/pboling.pem)
+```
+
+You only need to do that once.  Then proceed to install with:
+
+```console
+gem install late_template -P HighSecurity
+```
+
 The `HighSecurity` trust profile will verify signed gems, and not allow the installation of unsigned dependencies.
-Install the gem and add to the application's Gemfile by executing:
+
 If you want to up your security game full-time:
-```bash
+
 ```console
 bundle config set --global trust-policy MediumSecurity
+```
+
 `MediumSecurity` instead of `HighSecurity` is necessary if not all the gems you use are signed.
 
 NOTE: Be prepared to track down certs for signed gems and add them the same way you added mine.
 
 </details>
-gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+
 ## 🔧 Basic Usage
 
-To create a new Batch, call `Batch#new` pass it the class and any additional arguments (all as a hash).
+eLateTemplate helps you interactively sync content from a template README (left) into a target README (right), chunk by chunk, with fine-grained control over how differences are applied.
 
-    batch = EachInBatches::Batch.new(:arel => Payment.canceled.order("transaction_id ASC"), :batch_size => 50)
+- Left = the template file you want to pull content from
+- Right = your target README that will be updated
 
-To process the batched data, pass a block to `Batch#run` the same way you would to an object in a block like `Klass.all.each {|x| x.do_something }`.
-`Batch#run` will pass the data to your block, one at a time, in batches set by the :batch_size argument.
-    batch.run {|x| puts x.id; puts x.transaction_id}
+### Run the CLI
 
-Print the results!
+```console
+late_template --template PATH/TO/TEMPLATE.md --target PATH/TO/README.md
+```
 
-    batch.print_results
+Examples:
 
-Or...
+```console
+# Basic invocation
+late_template --template ./TEMPLATE.md --target ./README.md
 
-Consolidate your code if you prefer
+# Replace tokens in the template on the fly before diffing
+late_template \
+  --template ./TEMPLATE.md \
+  --target ./README.md \
+  --find "PROJECT_NAME,ORG_LINK" \
+  --replace "LateTemplate,https://github.com/galtzo-floss"
+```
 
-    EachInBatches::Batch.new(:arel => Payment.canceled.order("transaction_id ASC"), batch_size => 50, :show_results => true).run{|x| puts x.id; puts x.transaction_id}
+Notes:
+- --find and --replace take comma-separated lists. They must be the same length; each item is replaced positionally in the template before comparison.
+- If either --template or --target is missing, the command will exit with an error and show usage.
+- See help: `late_template -h`
 
-## Configuration
+### Interactive controls
+For each diff chunk, you will see a side-by-side view and a prompt. Type a key and press Enter.
 
-Arguements for the initializer (Batch.new) method are:
+- A: Replace RIGHT with LEFT, saving the previous RIGHT text to Clips
+- B: Insert LEFT above RIGHT (keep RIGHT)
+- C: Insert LEFT below RIGHT (keep RIGHT)
+- D: Replace RIGHT with LEFT (discard RIGHT)
+- K: Cut RIGHT into a saved Clip and remove it from the target
+- E: Edit LEFT text before applying
+- F: Edit RIGHT text before applying
+- G: Insert a previously saved Clip above RIGHT
+- H: Show help
+- I: Ignore this chunk (no change)
+- S: Save and quit (warns if you still have saved Clips)
+- X: Exit without saving
 
-    Required:
+After all chunks are reviewed, you’ll be asked to confirm writing the changes to the target file.
 
-      :arel          - Usage: :arel => Payment.canceled.order("transaction_id ASC")
-                        Required, as this is the class that will be batched
+### Editor support
+- If $EDITOR or $VISUAL is set, LateTemplate will launch that editor for E/F edits.
+- If available, the optional dependency tty-editor is used to auto-discover an editor for a better experience.
+- If no editor can be launched, LateTemplate falls back to a simple stdin prompt; finish with Ctrl-D (EOF).
 
-    Optional:
-
-      :verbose       - Usage: :verbose => true or false
-                        Sets verbosity of output
-                        Default: false (if not provided)
-
-      :backwards     - Usage: :backwards => true or false
-                        Using the order supplied for :arel (if any) figures out what the batch set looks like,
-			and begins working from the end rather than the front.
-                        Default: false (if not provided)
-			Example: EachInBatches::Batch.new(:arel => Report.where(company_id: nil).order("id ASC"), :backwards => true, :batch_size => 50).run{|x| x.destroy }
-
-      :batch_size    - Usage: :batch_size => x
-                        Where x is some number.
-                        How many AR Objects should be processed at once?
-                        Default: 50 (if not provided)
-
-      :last_batch    - Usage: :last_batch => x
-                        Where x is some number.
-                        Only process up to and including batch #x.
-                          Batch numbers start at 0 for the first batch.
-                        Default: won't be used (no limit if not provided)
-
-      :first_batch   - Usage: first_batch => x
-                        Where x is some number.
-                        Begin processing batches beginning at batch #x.
-                          Batch numbers start at 0 for the first batch.
-                        Default: won't be used (no offset if not provided)
-
-      :show_results  - Usage: :show_results => true or false
-                        Prints statistics about the results of Batch#run.
-                        Default: true if verbose is set to true and :show_results is not provided, otherwise false
-
-## Output
-
-Interpreting the output:
-
-    '[O]' means the batch was skipped due to an offset.
-    '[L]' means the batch was skipped due to a limit.
-    '[P]' means the batch is processing.
-    '[C]' means the batch is complete.
-    and yes... it was a coincidence.  This class is not affiliated with 'one laptop per child'
+### Tips
+- Run this in a git repo so you can easily review diffs and undo if needed.
+- Use small, focused templates to get the cleanest diff chunks.
 
 ## FLOSS Funding
 
@@ -223,15 +231,15 @@ chat rooms and mailing lists agrees to follow the [![Contributor Covenant 2.1][�
 
 Made with [contributors-img][🖐contrib-rocks].
 
-Also see GitLab Contributors: [https://gitlab.com/galtzo-floss/each_in_batches/-/graphs/main][🚎contributors-gl]
+Also see GitLab Contributors: [https://gitlab.com/galtzo-floss/late_template/-/graphs/main][🚎contributors-gl]
 
 ## ⭐️ Star History
 
-<a href="https://star-history.com/#galtzo-floss/each_in_batches&Date">
+<a href="https://star-history.com/#galtzo-floss/late_template&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=galtzo-floss/each_in_batches&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=galtzo-floss/each_in_batches&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=galtzo-floss/each_in_batches&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=galtzo-floss/late_template&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=galtzo-floss/late_template&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=galtzo-floss/late_template&type=Date" />
  </picture>
 </a>
 
@@ -254,7 +262,7 @@ the [Pessimistic Version Constraint][📌pvc] with two digits of precision.
 For example:
 
 ```ruby
-spec.add_dependency("each_in_batches", "~> 1.0")
+spec.add_dependency("late_template", "~> 1.0")
 ```
 
 <details>
@@ -283,13 +291,13 @@ See [LICENSE.txt][📄license] for the official [Copyright Notice][📄copyright
 
 <ul>
     <li>
-        Copyright (c) 2008-2015, 2025 Peter H. Boling, of
+        Copyright (c) 2025 Peter H. Boling, of
         <a href="https://discord.gg/3qme4XHNKN">
             Galtzo.com
             <picture>
               <img src="https://logos.galtzo.com/assets/images/galtzo-floss/avatar-128px-blank.svg" alt="Galtzo.com Logo (Wordless) by Aboling0, CC BY-SA 4.0" width="24">
             </picture>
-        </a>, Brian Kidd, and each_in_batches contributors
+        </a>, and late_template contributors
     </li>
 </ul>
 
@@ -318,11 +326,11 @@ P.S. If you need help️ or want to say thanks, 👇 Join the Discord.
 [✉️discord-invite-img]: https://img.shields.io/discord/1373797679469170758?style=for-the-badge
 
 [✇bundle-group-pattern]: https://gist.github.com/pboling/4564780
-[⛳️gem-namespace]: https://github.com/galtzo-floss/each_in_batches
-[⛳️namespace-img]: https://img.shields.io/badge/namespace-EachInBatches-brightgreen.svg?style=flat&logo=ruby&logoColor=white
-[⛳️gem-name]: https://rubygems.org/gems/each_in_batches
-[⛳️name-img]: https://img.shields.io/badge/name-each__in__batches-brightgreen.svg?style=flat&logo=rubygems&logoColor=red
-[🚂maint-blog]: http://www.railsbling.com/tags/each_in_batches
+[⛳️gem-namespace]: https://github.com/galtzo-floss/late_template
+[⛳️namespace-img]: https://img.shields.io/badge/namespace-LateTemplate-brightgreen.svg?style=flat&logo=ruby&logoColor=white
+[⛳️gem-name]: https://rubygems.org/gems/late_template
+[⛳️name-img]: https://img.shields.io/badge/name-late__template-brightgreen.svg?style=flat&logo=rubygems&logoColor=red
+[🚂maint-blog]: http://www.railsbling.com/tags/late_template
 [🚂maint-blog-img]: https://img.shields.io/badge/blog-railsbling-0093D0.svg?style=for-the-badge&logo=rubyonrails&logoColor=orange
 [🚂maint-contact]: http://www.railsbling.com/contact
 [🚂maint-contact-img]: https://img.shields.io/badge/Contact-Maintainer-0093D0.svg?style=flat&logo=rubyonrails&logoColor=red
@@ -356,57 +364,57 @@ P.S. If you need help️ or want to say thanks, 👇 Join the Discord.
 [💁🏼‍♂️peterboling]: http://www.peterboling.com
 [🚂railsbling]: http://www.railsbling.com
 [📜src-gl-img]: https://img.shields.io/badge/GitLab-FBA326?style=for-the-badge&logo=Gitlab&logoColor=orange
-[📜src-gl]: https://gitlab.com/galtzo-floss/each_in_batches/
+[📜src-gl]: https://gitlab.com/galtzo-floss/late_template/
 [📜src-cb-img]: https://img.shields.io/badge/CodeBerg-4893CC?style=for-the-badge&logo=CodeBerg&logoColor=blue
-[📜src-cb]: https://codeberg.org/galtzo-floss/each_in_batches
+[📜src-cb]: https://codeberg.org/galtzo-floss/late_template
 [📜src-gh-img]: https://img.shields.io/badge/GitHub-238636?style=for-the-badge&logo=Github&logoColor=green
-[📜src-gh]: https://github.com/galtzo-floss/each_in_batches
+[📜src-gh]: https://github.com/galtzo-floss/late_template
 [📜docs-cr-rd-img]: https://img.shields.io/badge/RubyDoc-Current_Release-943CD2?style=for-the-badge&logo=readthedocs&logoColor=white
 [📜docs-head-rd-img]: https://img.shields.io/badge/YARD_on_Galtzo.com-HEAD-943CD2?style=for-the-badge&logo=readthedocs&logoColor=white
-[📜wiki]: https://gitlab.com/galtzo-floss/each_in_batches/-/wikis/home
+[📜wiki]: https://gitlab.com/galtzo-floss/late_template/-/wikis/home
 [📜wiki-img]: https://img.shields.io/badge/wiki-examples-943CD2.svg?style=for-the-badge&logo=Wiki&logoColor=white
-[👽dl-rank]: https://rubygems.org/gems/each_in_batches
-[👽dl-ranki]: https://img.shields.io/gem/rd/each_in_batches.svg
-[👽oss-help]: https://www.codetriage.com/galtzo-floss/each_in_batches
-[👽oss-helpi]: https://www.codetriage.com/galtzo-floss/each_in_batches/badges/users.svg
-[👽version]: https://rubygems.org/gems/each_in_batches
-[👽versioni]: https://img.shields.io/gem/v/each_in_batches.svg
-[🔑qlty-mnt]: https://qlty.sh/gh/galtzo-floss/projects/each_in_batches
-[🔑qlty-mnti]: https://qlty.sh/gh/galtzo-floss/projects/each_in_batches/maintainability.svg
-[🔑qlty-cov]: https://qlty.sh/gh/galtzo-floss/projects/each_in_batches/metrics/code?sort=coverageRating
-[🔑qlty-covi]: https://qlty.sh/gh/galtzo-floss/projects/each_in_batches/coverage.svg
-[🔑codecov]: https://codecov.io/gh/galtzo-floss/each_in_batches
-[🔑codecovi♻️]: https://codecov.io/gh/galtzo-floss/each_in_batches/graph/badge.svg?token=hRnUCPqxMu
-[🔑coveralls]: https://coveralls.io/github/galtzo-floss/each_in_batches?branch=main
-[🔑coveralls-img]: https://coveralls.io/repos/github/galtzo-floss/each_in_batches/badge.svg?branch=main
-[🖐codeQL]: https://github.com/galtzo-floss/each_in_batches/security/code-scanning
-[🖐codeQL-img]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/codeql-analysis.yml/badge.svg
-[🚎1-an-wf]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/ancient.yml
-[🚎1-an-wfi]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/ancient.yml/badge.svg
-[🚎2-cov-wf]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/coverage.yml
-[🚎2-cov-wfi]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/coverage.yml/badge.svg
-[🚎3-hd-wf]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/heads.yml
-[🚎3-hd-wfi]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/heads.yml/badge.svg
-[🚎4-lg-wf]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/legacy.yml
-[🚎4-lg-wfi]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/legacy.yml/badge.svg
-[🚎5-st-wf]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/style.yml
-[🚎5-st-wfi]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/style.yml/badge.svg
-[🚎6-s-wf]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/supported.yml
-[🚎6-s-wfi]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/supported.yml/badge.svg
-[🚎7-us-wf]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/unsupported.yml
-[🚎7-us-wfi]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/unsupported.yml/badge.svg
-[🚎8-ho-wf]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/hoary.yml
-[🚎8-ho-wfi]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/hoary.yml/badge.svg
-[🚎9-t-wf]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/truffle.yml
-[🚎9-t-wfi]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/truffle.yml/badge.svg
-[🚎10-j-wf]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/jruby.yml
-[🚎10-j-wfi]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/jruby.yml/badge.svg
-[🚎11-c-wf]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/current.yml
-[🚎11-c-wfi]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/current.yml/badge.svg
-[🚎13-🔒️-wf]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/deps_locked.yml
-[🚎13-🔒️-wfi]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/deps_locked.yml/badge.svg
-[🚎14-🔓️-wf]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/deps_unlocked.yml
-[🚎14-🔓️-wfi]: https://github.com/galtzo-floss/each_in_batches/actions/workflows/deps_unlocked.yml/badge.svg
+[👽dl-rank]: https://rubygems.org/gems/late_template
+[👽dl-ranki]: https://img.shields.io/gem/rd/late_template.svg
+[👽oss-help]: https://www.codetriage.com/galtzo-floss/late_template
+[👽oss-helpi]: https://www.codetriage.com/galtzo-floss/late_template/badges/users.svg
+[👽version]: https://rubygems.org/gems/late_template
+[👽versioni]: https://img.shields.io/gem/v/late_template.svg
+[🔑qlty-mnt]: https://qlty.sh/gh/galtzo-floss/projects/late_template
+[🔑qlty-mnti]: https://qlty.sh/gh/galtzo-floss/projects/late_template/maintainability.svg
+[🔑qlty-cov]: https://qlty.sh/gh/galtzo-floss/projects/late_template/metrics/code?sort=coverageRating
+[🔑qlty-covi]: https://qlty.sh/gh/galtzo-floss/projects/late_template/coverage.svg
+[🔑codecov]: https://codecov.io/gh/galtzo-floss/late_template
+[🔑codecovi♻️]: https://codecov.io/gh/galtzo-floss/late_template/graph/badge.svg?token=hRnUCPqxMu
+[🔑coveralls]: https://coveralls.io/github/galtzo-floss/late_template?branch=main
+[🔑coveralls-img]: https://coveralls.io/repos/github/galtzo-floss/late_template/badge.svg?branch=main
+[🖐codeQL]: https://github.com/galtzo-floss/late_template/security/code-scanning
+[🖐codeQL-img]: https://github.com/galtzo-floss/late_template/actions/workflows/codeql-analysis.yml/badge.svg
+[🚎1-an-wf]: https://github.com/galtzo-floss/late_template/actions/workflows/ancient.yml
+[🚎1-an-wfi]: https://github.com/galtzo-floss/late_template/actions/workflows/ancient.yml/badge.svg
+[🚎2-cov-wf]: https://github.com/galtzo-floss/late_template/actions/workflows/coverage.yml
+[🚎2-cov-wfi]: https://github.com/galtzo-floss/late_template/actions/workflows/coverage.yml/badge.svg
+[🚎3-hd-wf]: https://github.com/galtzo-floss/late_template/actions/workflows/heads.yml
+[🚎3-hd-wfi]: https://github.com/galtzo-floss/late_template/actions/workflows/heads.yml/badge.svg
+[🚎4-lg-wf]: https://github.com/galtzo-floss/late_template/actions/workflows/legacy.yml
+[🚎4-lg-wfi]: https://github.com/galtzo-floss/late_template/actions/workflows/legacy.yml/badge.svg
+[🚎5-st-wf]: https://github.com/galtzo-floss/late_template/actions/workflows/style.yml
+[🚎5-st-wfi]: https://github.com/galtzo-floss/late_template/actions/workflows/style.yml/badge.svg
+[🚎6-s-wf]: https://github.com/galtzo-floss/late_template/actions/workflows/supported.yml
+[🚎6-s-wfi]: https://github.com/galtzo-floss/late_template/actions/workflows/supported.yml/badge.svg
+[🚎7-us-wf]: https://github.com/galtzo-floss/late_template/actions/workflows/unsupported.yml
+[🚎7-us-wfi]: https://github.com/galtzo-floss/late_template/actions/workflows/unsupported.yml/badge.svg
+[🚎8-ho-wf]: https://github.com/galtzo-floss/late_template/actions/workflows/hoary.yml
+[🚎8-ho-wfi]: https://github.com/galtzo-floss/late_template/actions/workflows/hoary.yml/badge.svg
+[🚎9-t-wf]: https://github.com/galtzo-floss/late_template/actions/workflows/truffle.yml
+[🚎9-t-wfi]: https://github.com/galtzo-floss/late_template/actions/workflows/truffle.yml/badge.svg
+[🚎10-j-wf]: https://github.com/galtzo-floss/late_template/actions/workflows/jruby.yml
+[🚎10-j-wfi]: https://github.com/galtzo-floss/late_template/actions/workflows/jruby.yml/badge.svg
+[🚎11-c-wf]: https://github.com/galtzo-floss/late_template/actions/workflows/current.yml
+[🚎11-c-wfi]: https://github.com/galtzo-floss/late_template/actions/workflows/current.yml/badge.svg
+[🚎13-🔒️-wf]: https://github.com/galtzo-floss/late_template/actions/workflows/deps_locked.yml
+[🚎13-🔒️-wfi]: https://github.com/galtzo-floss/late_template/actions/workflows/deps_locked.yml/badge.svg
+[🚎14-🔓️-wf]: https://github.com/galtzo-floss/late_template/actions/workflows/deps_unlocked.yml
+[🚎14-🔓️-wfi]: https://github.com/galtzo-floss/late_template/actions/workflows/deps_unlocked.yml/badge.svg
 [💎ruby-1.9i]: https://img.shields.io/badge/Ruby-1.9-412BD3?style=for-the-badge&logo=ruby&logoColor=white
 [💎ruby-2.0i]: https://img.shields.io/badge/Ruby-2.0-DF00CA?style=for-the-badge&logo=ruby&logoColor=white
 [💎ruby-2.1i]: https://img.shields.io/badge/Ruby-2.1-DF00CA?style=for-the-badge&logo=ruby&logoColor=white
@@ -433,19 +441,19 @@ P.S. If you need help️ or want to say thanks, 👇 Join the Discord.
 [💎jruby-9.4i]: https://img.shields.io/badge/JRuby-9.4-FBE742?style=for-the-badge&logo=ruby&logoColor=red
 [💎jruby-c-i]: https://img.shields.io/badge/JRuby-current-FBE742?style=for-the-badge&logo=ruby&logoColor=green
 [💎jruby-headi]: https://img.shields.io/badge/JRuby-HEAD-FBE742?style=for-the-badge&logo=ruby&logoColor=blue
-[🤝gh-issues]: https://github.com/galtzo-floss/each_in_batches/issues
-[🤝gh-pulls]: https://github.com/galtzo-floss/each_in_batches/pulls
-[🤝gl-issues]: https://gitlab.com/galtzo-floss/each_in_batches/-/issues
-[🤝gl-pulls]: https://gitlab.com/galtzo-floss/each_in_batches/-/merge_requests
-[🤝cb-issues]: https://codeberg.org/galtzo-floss/each_in_batches/issues
-[🤝cb-pulls]: https://codeberg.org/galtzo-floss/each_in_batches/pulls
+[🤝gh-issues]: https://github.com/galtzo-floss/late_template/issues
+[🤝gh-pulls]: https://github.com/galtzo-floss/late_template/pulls
+[🤝gl-issues]: https://gitlab.com/galtzo-floss/late_template/-/issues
+[🤝gl-pulls]: https://gitlab.com/galtzo-floss/late_template/-/merge_requests
+[🤝cb-issues]: https://codeberg.org/galtzo-floss/late_template/issues
+[🤝cb-pulls]: https://codeberg.org/galtzo-floss/late_template/pulls
 [🤝cb-donate]: https://donate.codeberg.org/
 [🤝contributing]: CONTRIBUTING.md
-[🔑codecov-g♻️]: https://codecov.io/gh/galtzo-floss/each_in_batches/graphs/tree.svg?token=hRnUCPqxMu
+[🔑codecov-g♻️]: https://codecov.io/gh/galtzo-floss/late_template/graphs/tree.svg?token=hRnUCPqxMu
 [🖐contrib-rocks]: https://contrib.rocks
-[🖐contributors]: https://github.com/galtzo-floss/each_in_batches/graphs/contributors
-[🖐contributors-img]: https://contrib.rocks/image?repo=galtzo-floss/each_in_batches
-[🚎contributors-gl]: https://gitlab.com/galtzo-floss/each_in_batches/-/graphs/main
+[🖐contributors]: https://github.com/galtzo-floss/late_template/graphs/contributors
+[🖐contributors-img]: https://contrib.rocks/image?repo=galtzo-floss/late_template
+[🚎contributors-gl]: https://gitlab.com/galtzo-floss/late_template/-/graphs/main
 [🪇conduct]: CODE_OF_CONDUCT.md
 [🪇conduct-img]: https://img.shields.io/badge/Contributor_Covenant-2.1-259D6C.svg
 [📌pvc]: http://guides.rubygems.org/patterns/#pessimistic-version-constraint
@@ -468,24 +476,12 @@ P.S. If you need help️ or want to say thanks, 👇 Join the Discord.
 [📄license-img]: https://img.shields.io/badge/License-MIT-259D6C.svg
 [📄ilo-declaration]: https://www.ilo.org/declaration/lang--en/index.htm
 [📄ilo-declaration-img]: https://img.shields.io/badge/ILO_Fundamental_Principles-✓-259D6C.svg?style=flat
-[🚎yard-current]: http://rubydoc.info/gems/each_in_batches
+[🚎yard-current]: http://rubydoc.info/gems/late_template
 [🚎yard-head]: https://rspec-stubbed-env.galtzo.com
 [💎stone_checksums]: https://github.com/galtzo-floss/stone_checksums
-[💎SHA_checksums]: https://gitlab.com/galtzo-floss/each_in_batches/-/tree/main/checksums
+[💎SHA_checksums]: https://gitlab.com/galtzo-floss/late_template/-/tree/main/checksums
 [💎rlts]: https://github.com/rubocop-lts/rubocop-lts
 [💎rlts-img]: https://img.shields.io/badge/code_style_%26_linting-rubocop--lts-34495e.svg?plastic&logo=ruby&logoColor=white
 [💎appraisal2]: https://github.com/appraisal-rb/appraisal2
 [💎appraisal2-img]: https://img.shields.io/badge/appraised_by-appraisal2-34495e.svg?plastic&logo=ruby&logoColor=white
-[💎d-in-dvcs]: https://railsbling.com/posts/dvcs/put_the_d_in_dvcs/To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/late_template. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/late_template/blob/master/CODE_OF_CONDUCT.md).
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the LateTemplate project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/late_template/blob/master/CODE_OF_CONDUCT.md).
+[💎d-in-dvcs]: https://railsbling.com/posts/dvcs/put_the_d_in_dvcs/

@@ -1,0 +1,396 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "optparse"
+require "io/console"
+require "diff/lcs"
+
+# Core implementation is kept in this executable for simplicity and minimal files.
+
+Clip = Struct.new(:id, :text)
+
+class ReadmeSync
+  attr_reader :template_path, :target_path, :find_list, :replace_list, :clips
+
+  def initialize(template_path:, target_path:, find_list: nil, replace_list: nil)
+    @template_path = template_path
+    @target_path = target_path
+    @find_list = find_list
+    @replace_list = replace_list
+    @clips = []
+    @clip_seq = 0
+  end
+
+  def run
+    template = File.read(template_path)
+    target = File.read(target_path)
+
+    if find_list && replace_list
+      if find_list.length != replace_list.length
+        raise ArgumentError, "find and replace must have the same number of strings"
+      end
+      find_list.each_with_index do |f, i|
+        template = template.gsub(f, replace_list[i])
+      end
+    elsif find_list || replace_list
+      raise ArgumentError, "both find and replace must be provided if either is provided"
+    end
+
+    left_lines = template.lines(chomp: false)
+    right_lines = target.lines(chomp: false)
+
+    # Generate diff sequence of changes
+    sdiff = Diff::LCS.sdiff(right_lines, left_lines)
+
+    # Build hunks (chunks) - group consecutive non-equal operations
+    hunks = build_hunks(sdiff)
+
+    # Work on a mutable buffer of the right (target)
+    current_right = right_lines.dup
+
+    hunks.each_with_index do |hunk, idx|
+      loop do
+        clear_screen
+        puts "Chunk #{idx + 1} of #{hunks.size}"
+        puts "Template (left) vs Target (right)"
+        puts "=" * terminal_width
+        render_hunk(hunk)
+        puts "-" * terminal_width
+        show_options
+        print "> "
+        input = STDIN.gets
+        if input.nil?
+          puts "No input; exiting without saving."; return
+        end
+        choice = input.strip
+        key = choice[0]&.upcase
+        case key
+        when "A"
+          saved = hunk_right_text(hunk)
+          add_clip(saved) unless saved.empty?
+          apply_left_over_right!(current_right, hunk, keep_right: false, position: :replace)
+          break
+        when "B"
+          # Insert left above right, keep right
+          apply_left_over_right!(current_right, hunk, keep_right: true, position: :above)
+          break
+        when "C"
+          # Insert left below right, keep right
+          apply_left_over_right!(current_right, hunk, keep_right: true, position: :below)
+          break
+        when "D"
+          # Replace and discard right
+          apply_left_over_right!(current_right, hunk, keep_right: false, position: :replace)
+          break
+        when "K"
+          # Cut: save right to clips and remove it from the target buffer
+          saved = hunk_right_text(hunk)
+          add_clip(saved) unless saved.empty?
+          apply_specific_text!(current_right, hunk, "", keep_right: false, position: :replace)
+          break
+        when "E"
+          edited = edit_text(hunk_left_text(hunk))
+          update_hunk_left!(hunk, edited)
+          next
+        when "F"
+          edited = edit_text(hunk_right_text(hunk))
+          update_hunk_right!(hunk, edited)
+          next
+        when "G"
+          use_clip!(current_right, hunk)
+          break
+        when "H"
+          help
+          wait_key
+          next
+        when "I"
+          # ignore, move to next
+          break
+        when "S"
+          # Save and quit, but warn if there are saved clips so the user can continue editing
+          saved = write_and_quit(current_right)
+          if saved
+            return
+          else
+            # User chose to continue editing; redraw this chunk
+            next
+          end
+        when "X"
+          puts "Cancelled. No changes saved."
+          return
+        else
+          puts "Invalid choice. Press any key to continue."; wait_key; next
+        end
+      end
+    end
+
+    # After all hunks processed, ask to save
+    puts "All chunks reviewed. Save changes? (y/N)"
+    answer = STDIN.gets&.strip
+    if answer&.downcase == 'y'
+      if clips.any?
+        puts "Warning: You have #{clips.size} saved clip(s) not yet inserted."
+        puts "Save and quit anyway? (y/N)"
+        confirm = STDIN.gets&.strip&.downcase
+        unless confirm == 'y'
+          puts "Not saved. You can continue to edit by re-running and using your clips."
+          return
+        end
+      end
+      File.write(target_path, current_right.join)
+      puts "Saved to #{target_path}"
+    else
+      puts "Not saved."
+    end
+  end
+
+  private
+
+  def build_hunks(sdiff)
+    hunks = []
+    current = []
+    sdiff.each do |change|
+      if change.action == '='
+        # boundary between hunks
+        if current.any?
+          hunks << current
+          current = []
+        end
+      else
+        current << change
+      end
+    end
+    hunks << current if current.any?
+    hunks
+  end
+
+  def hunk_left_text(hunk)
+    hunk.map { |c| c.new_element }.compact.join
+  end
+
+  def hunk_right_text(hunk)
+    hunk.map { |c| c.old_element }.compact.join
+  end
+
+  def update_hunk_left!(hunk, new_text)
+    new_lines = new_text&.lines(chomp: false) || []
+    # Map new_lines across positions with action '!' to indicate edited
+    idx = 0
+    hunk.each do |c|
+      if c.new_element
+        c.instance_variable_set(:@new_element, new_lines[idx])
+        idx += 1
+      end
+    end
+  end
+
+  def update_hunk_right!(hunk, new_text)
+    new_lines = new_text&.lines(chomp: false) || []
+    idx = 0
+    hunk.each do |c|
+      if c.old_element
+        c.instance_variable_set(:@old_element, new_lines[idx])
+        idx += 1
+      end
+    end
+  end
+
+  def use_clip!(current_right, hunk)
+    if clips.empty?
+      puts "No saved clippings."; wait_key; return
+    end
+    puts "Choose a clipping to insert:" 
+    clips.each do |clip|
+      puts "[#{clip.id}] #{preview(clip.text)}"
+    end
+    print "> "
+    id = STDIN.gets&.strip
+    clip = clips.find { |c| c.id.to_s == id }
+    if clip
+      apply_specific_text!(current_right, hunk, clip.text, keep_right: true, position: :above)
+    else
+      puts "Invalid clipping id."; wait_key
+    end
+  end
+
+  def preview(text)
+    t = text.gsub(/\n/, "\\n")
+    t.length > 60 ? t[0, 57] + "..." : t
+  end
+
+  def add_clip(text)
+    return if text.to_s.empty?
+    @clip_seq += 1
+    clips << Clip.new(@clip_seq, text)
+  end
+
+  def apply_left_over_right!(current_right, hunk, keep_right:, position: :replace)
+    left_text = hunk_left_text(hunk)
+    apply_specific_text!(current_right, hunk, left_text, keep_right: keep_right, position: position)
+  end
+
+  def apply_specific_text!(current_right, hunk, incoming_text, keep_right:, position: :replace)
+    # Determine the span in the old (right) based on indices in sdiff
+    old_indices = hunk.map { |c| c.old_position }.compact
+    insert_at = old_indices.min || current_right.length
+    delete_to = old_indices.max
+
+    right_segment_lines = old_indices.any? ? (current_right[insert_at..delete_to] || []) : []
+    right_segment = right_segment_lines.join
+
+    new_segment = case [keep_right, position]
+                  when [false, :replace]
+                    incoming_text
+                  when [true, :above]
+                    incoming_text + right_segment
+                  when [true, :below]
+                    right_segment + incoming_text
+                  else
+                    incoming_text
+                  end
+
+    # Replace the right buffer range
+    if old_indices.any?
+      current_right[insert_at..delete_to] = new_segment.lines(chomp: false)
+    else
+      current_right.insert(insert_at, *new_segment.lines(chomp: false))
+    end
+  end
+
+  def help
+    puts <<~HELP
+      Options per chunk (lowercase or full words accepted; we use the first letter):
+      A) Accept change (left -> right); right is saved for later reinsertion
+      B) Accept change (left -> right), insert above right side change, keeping right
+      C) Accept change (left -> right), insert below right side change, keeping right
+      D) Accept change (left -> right), right is destroyed (same as A but without saving right)
+      K) Cut right side: save to clips and remove from target (no left insertion)
+      E) Edit the incoming change (left) first
+      F) Edit the right side target first
+      G) Use text previously saved for later reinsertion
+      H) Help
+      I) Ignore the change and move to next
+      S) Save changes to file and quit
+      X) Cancel changes and quit
+    HELP
+  end
+
+  def show_options
+    puts "[A]ccept+[save right]  [B] Above  [C] Below  [D] Replace  [K] Cut→Clip  [E] Edit Left  [F] Edit Right  [G] Use Clip  [H]elp  [I]gnore  [S]ave+Quit  E[x]it (lowercase/words ok)"
+  end
+
+  def render_hunk(hunk)
+    width = terminal_width
+    col = (width / 2) - 2
+    left = hunk_left_text(hunk)
+    right = hunk_right_text(hunk)
+    left_lines = wrap_for_column(left, col)
+    right_lines = wrap_for_column(right, col)
+    rows = [left_lines.length, right_lines.length].max
+    puts format("%-#{col}s  |  %-#{col}s", "LEFT (template)", "RIGHT (target)")
+    puts ("-" * col) + "--+--" + ("-" * col)
+    rows.times do |i|
+      puts format("%-#{col}s  |  %-#{col}s", left_lines[i] || "", right_lines[i] || "")
+    end
+  end
+
+  def wrap_for_column(text, col)
+    lines = []
+    text.lines.each do |line|
+      s = line.chomp
+      while s.length > col
+        lines << s[0, col]
+        s = s[col..]
+      end
+      lines << s
+    end
+    lines
+  end
+
+  def terminal_width
+    (IO.console.winsize[1] rescue 120)
+  end
+
+  def clear_screen
+    print "\e[2J\e[H"
+  end
+
+  def wait_key
+    STDIN.gets
+  end
+
+  def edit_text(initial)
+    editor = ENV["EDITOR"] || ENV["VISUAL"]
+    if editor && !editor.strip.empty?
+      require 'tempfile'
+      Tempfile.create("late_template_edit") do |f|
+        f.write(initial.to_s)
+        f.flush
+        system(editor, f.path)
+        return File.read(f.path)
+      end
+    else
+      puts "Enter text. End with a single line containing only 'END'."
+      buffer = []
+      loop do
+        line = STDIN.gets
+        break if line.nil?
+        l = line.chomp
+        break if l == 'END'
+        buffer << line
+      end
+      buffer.join
+    end
+  end
+
+  def write_and_quit(current_right)
+    if clips.any?
+      puts "Warning: You have #{clips.size} saved clip(s) not yet inserted."
+      puts "Save and quit anyway? (y/N)"
+      answer = STDIN.gets&.strip&.downcase
+      return false unless answer == 'y'
+    end
+    File.write(target_path, current_right.join)
+    puts "Saved to #{target_path}"
+    true
+  end
+end
+
+options = {
+  find: nil,
+  replace: nil
+}
+
+parser = OptionParser.new do |opts|
+  opts.banner = "Usage: late_template --template PATH --target PATH [--find a,b --replace x,y]"
+
+  opts.on("--template TEMPLATE", "Path to source (template) readme") { |v| options[:template] = v }
+  opts.on("--target TARGET", "Path to target readme to modify") { |v| options[:target] = v }
+  opts.on("--find LIST", "Comma separated list of find strings, ordered") { |v| options[:find] = v }
+  opts.on("--replace LIST", "Comma separated list of replacement strings, ordered") { |v| options[:replace] = v }
+  opts.on("-h", "--help", "Show help") {
+    puts opts
+    exit 0
+  }
+end
+
+begin
+  parser.parse!
+  if options[:template].nil? || options[:target].nil?
+    raise OptionParser::MissingArgument, "--template and --target are required"
+  end
+
+  find_list = options[:find]&.split(",")
+  replace_list = options[:replace]&.split(",")
+
+  ReadmeSync.new(
+    template_path: options[:template],
+    target_path: options[:target],
+    find_list: find_list,
+    replace_list: replace_list
+  ).run
+rescue OptionParser::ParseError, ArgumentError => e
+  warn "Error: #{e.message}"
+  warn parser
+  exit 1
+end

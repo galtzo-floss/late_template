@@ -125,11 +125,18 @@ class ReadmeSync
     end
 
     # After all hunks processed, ask to save
+    puts "--- Begin file to be saved: #{target_path} ---"
+    puts current_right.join
+    puts "--- End file to be saved ---"
     puts "All chunks reviewed. Save changes? (y/N)"
     answer = STDIN.gets&.strip
     if answer&.downcase == 'y'
       if clips.any?
         puts "Warning: You have #{clips.size} saved clip(s) not yet inserted."
+        # Show content again before final confirmation to ensure clarity
+        puts "--- Begin file to be saved: #{target_path} ---"
+        puts current_right.join
+        puts "--- End file to be saved ---"
         puts "Save and quit anyway? (y/N)"
         confirm = STDIN.gets&.strip&.downcase
         unless confirm == 'y'
@@ -346,6 +353,10 @@ class ReadmeSync
   def write_and_quit(current_right)
     if clips.any?
       puts "Warning: You have #{clips.size} saved clip(s) not yet inserted."
+      # Show full content that would be saved before asking to confirm
+      puts "--- Begin file to be saved: #{target_path} ---"
+      puts current_right.join
+      puts "--- End file to be saved ---"
       puts "Save and quit anyway? (y/N)"
       answer = STDIN.gets&.strip&.downcase
       return false unless answer == 'y'

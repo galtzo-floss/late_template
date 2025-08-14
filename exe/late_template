@@ -5,6 +5,14 @@ require "optparse"
 require "io/console"
 require "diff/lcs"
 
+# Optional dependency: provides better external editor discovery
+begin
+  require "tty/editor"
+  HAVE_TTY_EDITOR = true
+rescue LoadError
+  HAVE_TTY_EDITOR = false
+end
+
 # Core implementation is kept in this executable for simplicity and minimal files.
 
 Clip = Struct.new(:id, :text)
@@ -327,23 +335,36 @@ class ReadmeSync
   end
 
   def edit_text(initial)
+    require 'tempfile'
+
+    # Prefer user's chosen editor if set
     editor = ENV["EDITOR"] || ENV["VISUAL"]
-    if editor && !editor.strip.empty?
-      require 'tempfile'
-      Tempfile.create("late_template_edit") do |f|
-        f.write(initial.to_s)
-        f.flush
-        system(editor, f.path)
+
+    Tempfile.create("late_template_edit") do |f|
+      f.write(initial.to_s)
+      f.flush
+
+      launched = false
+      if editor && !editor.strip.empty?
+        launched = system(editor, f.path)
+      end
+
+      # If no EDITOR/VISUAL or launching failed, try TTY::Editor which
+      # discovers an available terminal editor (e.g., vim, nano, code) and
+      # provides a much better editing experience than raw stdin.
+      unless launched
+        launched = HAVE_TTY_EDITOR && TTY::Editor.open(f.path)
+      end
+
+      if launched
         return File.read(f.path)
       end
-    else
-      puts "Enter text. End with a single line containing only 'END'."
+
+      # Last resort fallback to simple multiline input
+      puts "Enter text. Press Ctrl-D (EOF) on an empty line to finish."
+      puts "Tip: Set $EDITOR for full-featured editing."
       buffer = []
-      loop do
-        line = STDIN.gets
-        break if line.nil?
-        l = line.chomp
-        break if l == 'END'
+      while (line = STDIN.gets)
         buffer << line
       end
       buffer.join
@@ -385,23 +406,25 @@ parser = OptionParser.new do |opts|
   }
 end
 
-begin
-  parser.parse!
-  if options[:template].nil? || options[:target].nil?
-    raise OptionParser::MissingArgument, "--template and --target are required"
+if $PROGRAM_NAME == __FILE__
+  begin
+    parser.parse!
+    if options[:template].nil? || options[:target].nil?
+      raise OptionParser::MissingArgument, "--template and --target are required"
+    end
+
+    find_list = options[:find]&.split(",")
+    replace_list = options[:replace]&.split(",")
+
+    ReadmeSync.new(
+      template_path: options[:template],
+      target_path: options[:target],
+      find_list: find_list,
+      replace_list: replace_list
+    ).run
+  rescue OptionParser::ParseError, ArgumentError => e
+    warn "Error: #{e.message}"
+    warn parser
+    exit 1
   end
-
-  find_list = options[:find]&.split(",")
-  replace_list = options[:replace]&.split(",")
-
-  ReadmeSync.new(
-    template_path: options[:template],
-    target_path: options[:target],
-    find_list: find_list,
-    replace_list: replace_list
-  ).run
-rescue OptionParser::ParseError, ArgumentError => e
-  warn "Error: #{e.message}"
-  warn parser
-  exit 1
 end

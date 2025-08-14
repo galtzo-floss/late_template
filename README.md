@@ -122,7 +122,7 @@ NOTE: Be prepared to track down certs for signed gems and add them the same way 
 
 ## 🔧 Basic Usage
 
-eLateTemplate helps you interactively sync content from a template README (left) into a target README (right), chunk by chunk, with fine-grained control over how differences are applied.
+LateTemplate helps you interactively sync content from a template README (left) into a target README (right), chunk by chunk, with fine-grained control over how differences are applied.
 
 - Left = the template file you want to pull content from
 - Right = your target README that will be updated
